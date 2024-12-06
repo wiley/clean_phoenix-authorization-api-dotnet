@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+	<PackageReference Include="WLS.Log.LoggerTransactionPattern" Version="5.0.0" />
+	  <PackageReference Include="WLS.KafkaMessenger" Version="5.0.1" />
+	  <PackageReference Include="WLS.KafkaProcessor" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Authorization.Consumer.Domain\Authorization.Consumer.Domain.csproj" />
+    <ProjectReference Include="..\Authorization.Consumer.Infrastructure.Interface\Authorization.Consumer.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\Authorization.Domain\Authorization.Domain.csproj" />
+    <ProjectReference Include="..\Authorization.Infrastructure.Interface\Authorization.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\Authorization.Services\Authorization.Services.csproj" />
+  </ItemGroup>
+
+</Project>

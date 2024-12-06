@@ -1,0 +1,69 @@
+# Default values for darwin-authorization-api
+# This file is in YAML format
+# Declared variables to be passed into $/templates files
+
+namespace: qe01
+
+image:
+  repository: 929380036510.dkr.ecr.us-east-1.amazonaws.com/authorization-api
+  tag: qa
+  pullPolicy: Always
+
+imagePullSecrets: []
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  external:
+    sslRedirect: "false"
+    forceSslRedirect: "true"
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 384Mi
+
+# replicacount has no impact if autoscaling.enabled = true
+replicacount: 1
+autoscaling:
+  enabled: false
+
+env_vars:
+  data:
+    LOG_JSON: "true"
+    LOG_MINIMUMLEVEL: Information
+    MONGO_DB_NAME: authorization-api-qe01
+    USERS_API_BASE_URL: "http://users-api"
+    COMPANY_API_BASE_URL: "http://company-api"
+    ENTITLEMENTS_API_BASE_URL: "http://entitlements-api"
+    GROUPS_API_BASE_URL: "http://groups-api"
+
+externalsecrets:
+  refreshInterval: 1m
+  secretCreationPolicy: Owner
+  secretStoreName: eks-nonprod-us-secret-manager
+  secretStoreType: ClusterSecretStore
+  data:
+  - keyValue: qe/darwin/secrets
+    nameValue: USERS_API_KEY
+    propertyValue: USERS_API_KEY
+  - keyValue: qe/darwin/secrets
+    nameValue: COMPANY_API_KEY
+    propertyValue: COMPANY_API_KEY
+  - keyValue: qe/darwin/secrets
+    nameValue: ENTITLEMENTS_API_KEY
+    propertyValue: ENTITLEMENTS_API_KEY
+  - keyValue: qe/darwin/secrets
+    nameValue: MONGO_CONNECTION_STRING
+    propertyValue: AUTHORIZATION_API_QE01_MONGO_CONNECTION_STRING
+  - keyValue: qe/darwin/secrets
+    nameValue: GROUPS_API_KEY
+    propertyValue: GROUPS_API_KEY
+  - keyValue: qe/darwin/secrets
+    nameValue: API_KEY
+    propertyValue: AUTHORIZATION_API_KEY

@@ -1,0 +1,5 @@
+apiVersion: v2
+appVersion: "undef"
+description: Helm Chart for darwin-authorization-api
+name: authorization
+version: 0.0.1

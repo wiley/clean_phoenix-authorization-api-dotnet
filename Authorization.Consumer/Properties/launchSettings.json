@@ -1,0 +1,38 @@
+﻿{
+  "profiles": {
+    "Dev Local": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "KAFKA_TOPIC": "wly.glb.pl.account,wly.glb.pl.organization,wly.glb.pl.group,wly.glb.pl.user,wly.glb.pl.entitlement",
+        "KAFKA_HOST": "kafka.dev.sgp.private.wiley.host:9092",
+        "KAFKA_CONSUMER_GROUP": "DarwinMessageGroup-authorization",
+        "MONGO_DB_NAME": "darwin-authorization",
+        "MONGO_CONNECTION_STRING": "mongodb://localhost:27017/",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "USERS_API_BASE_URL": "https://users-api.nonprod.sgp.wiley.host",
+        "COMPANY_API_BASE_URL": "https://company-api.nonprod.sgp.wiley.host",
+        "ENTITLEMENTS_API_BASE_URL": "https://entitlements-api.nonprod.sgp.wiley.host",
+        "USERS_API_KEY": "",
+        "COMPANY_API_KEY": "",
+        "ENTITLEMENTS_API_KEY": ""
+      }
+    },
+    "Authorization.Consumer": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "KAFKA_TOPIC": "wly.glb.pl.account,wly.glb.pl.organization,wly.glb.pl.group,wly.glb.pl.user",
+        "KAFKA_HOST": "localhost:9092",
+        "KAFKA_CONSUMER_GROUP": "DarwinMessageGroup-authorization",
+        "MONGO_DB_NAME": "darwin-authorization",
+        "MONGO_CONNECTION_STRING": "mongodb://root:example@localhost:27017/?authSource=admin",
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "USERS_API_BASE_URL": "https://users-api.nonprod.sgp.wiley.host",
+        "COMPANY_API_BASE_URL": "https://company-api.nonprod.sgp.wiley.host",
+        "ENTITLEMENTS_API_BASE_URL": "https://entitlements-api.nonprod.sgp.wiley.host",
+        "USERS_API_KEY": "",
+        "COMPANY_API_KEY": "",
+        "ENTITLEMENTS_API_KEY": ""
+      }
+    }
+  }
+}
